@@ -6,8 +6,9 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Products</h6>
+            <a href="{% url 'add_product' %}">+ product</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -20,6 +21,7 @@
                             <th>Rate</th>
                             <th>Quantity</th>
                             <th>Total</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -30,6 +32,7 @@
                             <th>Rate</th>
                             <th>Quantity</th>
                             <th>Total</th>
+                            <th>Actions</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -41,6 +44,10 @@
                             <td>{{product.rate}}</td>
                             <td>{{product.quantity}}</td>
                             <td>{% widthratio product.rate 1 product.quantity %}</td>
+                            <td>
+                                <a href="{% url 'edit_product' product.id %}">Edit</a>
+                                <a href="{% url 'delete_product' product.id %}">Delete</a>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
