@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Investments</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Start Date</th>
+                            <th>Investment</th>
+                            <th>Amount Invested</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Start Date</th>
+                            <th>Investment</th>
+                            <th>Amount Invested</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for investment in investments %}
+                        <tr>
+                            <td>{{investment.start_date}}</td>
+                            <td>{{investment.name}}</td>
+                            <td>{{investment.initial_amount_invested}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+{% endblock %}

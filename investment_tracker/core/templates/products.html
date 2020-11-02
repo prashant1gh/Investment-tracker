@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Products</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Selling Date</th>
+                            <th>Investment</th>
+                            <th>Product</th>
+                            <th>Rate</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Selling Date</th>
+                            <th>Investment</th>
+                            <th>Product</th>
+                            <th>Rate</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for product in products %}
+                        <tr>
+                            <td>{{product.selling_date}}</td>
+                            <td>{{product.investment}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.rate}}</td>
+                            <td>{{product.quantity}}</td>
+                            <td>{% widthratio product.rate 1 product.quantity %}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+{% endblock %}
